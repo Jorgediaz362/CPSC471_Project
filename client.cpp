@@ -167,7 +167,7 @@ int main(int argc, char** argv)
   cout << "ftp> ";
   cin >> input;
 
-  while (true) {
+  while (input != "quit") {
   
       send(connfd, cmd, MAXSIZE, 0);
       if(input == "get") {
@@ -277,19 +277,12 @@ int main(int argc, char** argv)
 	    fprintf(stderr, "%s\n", result.c_str());	
       
       }
-      
-      else if (input == "quit") {
-        fileName = input.c_str();
-        sendFileInfo(connfd, fileName);
-        close(connfd);
-        return 0;
-      }
-      
+
       else
         cout << "Invalid option. Please try again with a valid option.\n";
 
-    //cout << "Enter get, put, ls or quit after ftp" << endl;
     cout << "ftp>";
     cin >> input;
    }
+return 0;
 }
