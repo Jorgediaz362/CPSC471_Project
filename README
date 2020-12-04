@@ -58,7 +58,9 @@ Sending file: small.txt (12 bytes)...
 Uploaded file to server.
 ftp>
 
-Commands:
+======================
+Commands 
+======================
 put <filename> (uploads file <file name> to the server)
 get <filename> (downloads file <file name> from the server)
 ls (lists files on the server)
