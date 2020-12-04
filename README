@@ -36,21 +36,17 @@ deployed.
 
 Server terminal:
 
--bash-2.05b$ ./server 1234
+./server 1234
 Port  = 1234
 Waiting for somebody to connect on port 1234
 Connected!
-Sending: 1359971132
-Waiting for somebody to connect on port 1234
 
 
 Client terminal:
 
--bash-2.05b$ ./client 127.0.0.1 1234
-The time received from the server: 1359971132
-Bytes read: 10
-
-
+./client 127.0.0.1 1234
+Enter get, put, ls or quit after ftp>
+ftp>
 
 ======================
 Technical Information
@@ -58,4 +54,3 @@ Technical Information
 
 TCPLib.cpp implements functions that wrap standard read()/write()
 system calls. Please see comments for details. 
-
