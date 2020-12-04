@@ -1,3 +1,7 @@
+CPSC 471 Project 
+Author:
+Jorge Diaz jorgediaz@csu.fullerton.edu
+
 =========
 Compiling
 =========
@@ -54,3 +58,9 @@ Technical Information
 
 TCPLib.cpp implements functions that wrap standard read()/write()
 system calls. Please see comments for details. 
+
+=========
+ Credits
+=========
+
+Code was used from Dr. Yun Tian's sample code provided
