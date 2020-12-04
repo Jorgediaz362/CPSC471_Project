@@ -8,10 +8,14 @@
 #include <time.h>       /* For retrieving the time */
 #include <limits.h>	/* For limits */
 #include "TCPLib.h"     /* For tcp_recv, tcp_recv_size, tcp_send_size, and tcp_send */
+#include <fstream>
+#include <iostream>
 
+using namespace std;
 
 /* The maximum size of the file chunk */
 #define MAX_FILE_CHUNK_SIZE 100
+#define MAX_ 100
 
 /**
  * Returns the smallest of the two integers
@@ -61,6 +65,8 @@ void recvFileName(const int& socket, char* fileName)
 
 int main(int argc, char** argv)
 {
+
+    char response[MAX_];
 	/* The port number */	
 	int port = -1;
 	
@@ -168,28 +174,22 @@ int main(int argc, char** argv)
 	}
 
 	fprintf(stderr, "Waiting for somebody to connect on port %d\n", port);
-	
-	/* A structure to store the client address */
-	if((connfd = accept(listenfd, (sockaddr *)&cliAddr, &cliLen)) < 0) {
-		perror("accept");
-		exit(-1);
-	}
-			
-	fprintf(stderr, "Connected!\n");
     
-    while(true){
-        
-        recvFileName(connfd, fileName);
-        if(fileName == "quit") {
-            close(connfd);
-            return 0;
-        }
-    }
-		
+    while(true){    
+        	
+	    /* A structure to store the client address */
+	    if((connfd = accept(listenfd, (sockaddr *)&cliAddr, &cliLen)) < 0) {
+		    perror("accept");
+		    exit(-1);
+	    }
+			    
+	    fprintf(stderr, "Connected!\n");   
+	    close(listenfd);
+	    
+	    //runs forever unless connection is lost from client
+	    while(recv(connfd,response,MAX_,0) > 0){
+	    }
+	    close(connfd);    
+    }	
     return 0;
 }
-
-
-
-
-
