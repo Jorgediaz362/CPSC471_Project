@@ -62,6 +62,7 @@ Technical Information
 
 TCPLib.cpp implements functions that wrap standard read()/write()
 system calls. Please see comments for details. 
+Known Bug: server terminal will not close when client quits
 
 =========
  Credits
